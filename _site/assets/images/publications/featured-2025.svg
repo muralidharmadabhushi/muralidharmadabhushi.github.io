@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 200" role="img" aria-label="Publication thumbnail placeholder">
-  <rect width="320" height="200" fill="#fffaf4"/>
-  <rect x="18" y="18" width="284" height="164" rx="16" fill="#f0d0b2" stroke="#b98252" stroke-width="4"/>
-  <circle cx="102" cy="100" r="44" fill="none" stroke="#4c2f17" stroke-width="8"/>
-  <circle cx="178" cy="100" r="44" fill="none" stroke="#4c2f17" stroke-width="8" opacity="0.75"/>
-  <circle cx="216" cy="100" r="44" fill="none" stroke="#4c2f17" stroke-width="8" opacity="0.45"/>
-</svg>
