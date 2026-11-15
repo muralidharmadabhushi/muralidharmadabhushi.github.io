@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<h3>{{ page.title }}</h3>
+
+{% if page.description and page.description != "" %}
+  <p class="project-category-description">{{ page.description }}</p>
+{% endif %}
+
+<div class="project-grid compact-project-grid subproject-category-grid">
+  {% assign subprojects = site.subprojects | where: "category_id", page.category_id | sort: "order" %}
+  {% for subproject in subprojects %}
+    <a class="project-tile compact-project-tile" href="{{ subproject.url | relative_url }}">
+      {% if subproject.image and subproject.image != "" %}
+        <img src="{{ subproject.image | relative_url }}" alt="{{ subproject.image_alt | default: subproject.title }}" />
+      {% endif %}
+      <div class="project-tile-body">
+        <div class="project-tile-title">{{ subproject.title }}</div>
+      </div>
+    </a>
+  {% endfor %}
+</div>
+
+<p class="back-link"><a href="{{ '/projects.html' | relative_url }}">Back to Projects</a></p>

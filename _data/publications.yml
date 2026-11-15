@@ -1,0 +1,17 @@
+- year: 2026
+  title: Add featured publication title here
+  authors: Muralidhar Madabhushi, Coauthors
+  venue: Journal or conference name
+  featured: true
+  thumbnail: /assets/images/publications/featured-2026.svg
+  tldr: One sentence explaining the core contribution and why it matters.
+  link: ""
+
+- year: 2025
+  title: Add publication title here
+  authors: Muralidhar Madabhushi, Coauthors
+  venue: Journal or conference name
+  featured: true
+  thumbnail: /assets/images/publications/featured-2025.svg
+  tldr: One sentence explaining the core contribution and why it matters.
+  link: ""

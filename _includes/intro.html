@@ -1,0 +1,29 @@
+<div class="intro">
+  <div>
+    <img src="{{ site.data.profile.photo | relative_url }}" alt="{{ site.data.profile.photo_alt }}" class="headshot" />
+  </div>
+
+  <div>
+    <div class="titleline">
+      <strong class="name-main">{{ site.data.profile.name }}</strong><br />
+      {{ site.data.profile.title }}<br />
+      <a href="{{ site.data.profile.institution_url }}">{{ site.data.profile.institution }}</a>
+    </div>
+
+    <p class="affiliation-line">
+      Affiliated with: <a href="{{ site.data.profile.affiliation_url }}">{{ site.data.profile.affiliation }}</a>
+    </p>
+
+    <div class="contact-list" aria-label="Contact information">
+      {% if site.data.profile.phone and site.data.profile.phone != "" %}
+      <div><span class="contact-icon">☎</span> <span>{{ site.data.profile.phone }}</span></div>
+      {% endif %}
+      {% if site.data.profile.email and site.data.profile.email != "" %}
+      <div><span class="contact-icon">✉</span> <a href="mailto:{{ site.data.profile.email }}">{{ site.data.profile.email }}</a></div>
+      {% endif %}
+      {% if site.data.profile.google_scholar and site.data.profile.google_scholar != "" %}
+      <div><span class="contact-icon">🎓</span> <a href="{{ site.data.profile.google_scholar }}">Google Scholar</a></div>
+      {% endif %}
+    </div>
+  </div>
+</div>

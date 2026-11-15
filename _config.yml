@@ -1,0 +1,19 @@
+title: Muralidhar Madabhushi
+email: your-email@arizona.edu
+baseurl: "" # Leave empty for user.github.io. Use "/repository-name" for a project site.
+url: "" # Optional: e.g., https://yourusername.github.io
+markdown: kramdown
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name.html
+  subprojects:
+    output: true
+    permalink: /projects/:path/
+  publications:
+    output: false
+
+# Site build settings
+exclude:
+  - README.md

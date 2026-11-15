@@ -1,0 +1,108 @@
+---
+layout: default
+---
+
+<article class="research-project">
+
+  <h1 class="research-project-title">{{ page.title }}</h1>
+
+  <!-- In brief -->
+  <section class="research-section">
+    <div class="research-brief">
+      {% if page.brief_image %}
+      <img
+        class="research-brief-image {{ page.brief_image_class }}"
+        src="{{ page.brief_image | relative_url }}"
+        alt="{{ page.brief_image_alt | default: page.title }}"
+      >
+      {% endif %}
+
+    <div class="problems-block">
+      {{ page.brief | markdownify }}
+    </div>
+    </div>
+  </section>
+
+
+  <!-- Key technologies -->
+  <section class="research-section">
+    <h3>{{ page.technologies_title | default: "Key technologies used" }}</h3>
+
+    <div class="research-technologies">
+      {% if page.technologies_image %}
+      <img
+        class="research-technologies-image"
+        src="{{ page.technologies_image | relative_url }}"
+        alt="{{ page.technologies_image_alt | default: page.title }}"
+      >
+      {% endif %}
+      
+      <div class="research-technologies-text">
+        {{ page.technologies | markdownify }}
+      </div>
+    </div>
+  </section>
+
+    <!-- Other applications -->
+  <section class="research-section">
+    <h3>{{ page.applications_title | default: "Broader Applications" }}</h3>
+    <div class="research-technologies">
+      <div class="research-technologies-text">
+        {{ page.applications }}
+      </div>
+    </div>
+  </section>
+
+
+<!-- Publications -->
+<section class="research-section">
+  <h2>Publications</h2>
+
+  <ol class="research-publications">
+
+    {% for order in (1..50) %}
+
+      {% for pub in site.publications %}
+
+        {% assign pub_matches = false %}
+        {% assign pub_order = 0 %}
+
+        {% for project_tag in pub.projects %}
+
+          {% if project_tag[0] == page.project_id %}
+            {% assign pub_matches = true %}
+            {% assign pub_order = project_tag[1] | plus: 0 %}
+          {% endif %}
+
+        {% endfor %}
+
+        {% if pub_matches and pub_order == order %}
+          <li class="research-publication">
+
+            <span class="publication-authors">
+              {{ pub.authors }}
+            </span>.
+
+            <span class="publication-title">
+              {{ pub.title }}
+            </span>.
+
+            <span class="publication-meta">
+              {{ pub.venue }}, {{ pub.year }}.
+            </span>
+
+            {% if pub.link and pub.link != "" %}
+              <a href="{{ pub.link }}">[Link]</a>
+            {% endif %}
+
+          </li>
+        {% endif %}
+
+      {% endfor %}
+
+    {% endfor %}
+
+  </ol>
+</section>
+
+</article>

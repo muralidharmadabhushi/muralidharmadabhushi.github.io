@@ -1,0 +1,7 @@
+<div class="top-nav-wrap">
+  <nav class="top-nav" aria-label="Main navigation">
+    {% for item in site.data.navigation %}
+      <a href="{{ item.url | relative_url }}"{% if page.nav_id == item.id %} class="active"{% endif %}>{{ item.label }}</a>
+    {% endfor %}
+  </nav>
+</div>

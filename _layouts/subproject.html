@@ -1,0 +1,42 @@
+---
+layout: default
+---
+
+<p class="breadcrumb">
+  <a href="{{ '/projects.html' | relative_url }}">Projects</a>
+  <span>/</span>
+  <a href="{{ page.category_url | relative_url }}">{{ page.category_title }}</a>
+</p>
+
+<h3>{{ page.title }}</h3>
+
+<div class="subproject-detail">
+  {% if page.image and page.image != "" %}
+    <figure class="subproject-figure">
+      <img src="{{ page.image | relative_url }}" alt="{{ page.image_alt | default: page.title }}" />
+    </figure>
+  {% endif %}
+
+  <div class="subproject-copy">
+    <p>{{ page.description }}</p>
+
+    {{ content }}
+
+    <h3>Relevant papers</h3>
+    {% if page.papers and page.papers.size > 0 %}
+      <ul class="paper-link-list">
+        {% for paper in page.papers %}
+          <li>
+            {% if paper.link and paper.link != "" and paper.link != "#" %}
+              <a href="{{ paper.link }}">{{ paper.title }}</a>
+            {% else %}
+              {{ paper.title }}
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Relevant paper links will be added here.</p>
+    {% endif %}
+  </div>
+</div>
