@@ -120,13 +120,38 @@ p {
   margin: 16px 0;
 }
 
-.project-title,
-.publication-title {
+.project-title {
   font-weight: 700;
+}
+
+.publication-title {
+  font-weight: normal;
+  font-style: italic;
 }
 
 .publication-meta {
   color: #333;
+}
+
+.publication-year {
+  margin: 12px 0;
+}
+
+.publication-year summary {
+  cursor: pointer;
+  font-size: 1.17em;
+  font-weight: 700;
+
+  background: #f3e7dc;
+  padding: 7px 10px;
+  margin: 8px 0;
+
+  border-left: 4px solid #b98252;
+}
+
+.publication-year ul {
+  list-style: none;
+  padding-left: 0;
 }
 
 .research-publications {
@@ -395,6 +420,11 @@ p {
 #pub-tab-featured:checked ~ .pub-panel-featured,
 #pub-tab-year:checked ~ .pub-panel-year {
   display: block;
+}
+
+.pub-panel-year ul {
+  list-style: none;
+  padding-left: 0;
 }
 
 .featured-publication-card {

@@ -5,14 +5,13 @@ nav_id: publications
 permalink: /publications.html
 ---
 
-### Publications
 
 <div class="pub-tabs" aria-label="Publication views">
-  <input type="radio" id="pub-tab-featured" name="pub-tabs" checked />
-  <label for="pub-tab-featured">Featured</label>
-
-  <input type="radio" id="pub-tab-year" name="pub-tabs" />
+  <input type="radio" id="pub-tab-year" name="pub-tabs" checked />
   <label for="pub-tab-year">By year</label>
+
+  <input type="radio" id="pub-tab-featured" name="pub-tabs" />
+  <label for="pub-tab-featured">Featured</label>
 
   <section class="pub-panel pub-panel-featured" aria-label="Featured publications">
     {% assign featured_publications = site.publications | where: "featured", true %}
@@ -38,18 +37,21 @@ permalink: /publications.html
   <section class="pub-panel pub-panel-year" aria-label="Publications by year">
     {% assign publications_by_year = site.publications | group_by: "year" | sort: "name" | reverse %}
     {% for year_group in publications_by_year %}
-    <h3>{{ year_group.name }}</h3>
+    <details class="publication-year" markdown="0">
+    <summary>{{ year_group.name }}</summary>
     <ul>
-      {% for pub in year_group.items %}
-      <li class="publication-item">
-        <span class="publication-title">{{ pub.title }}</span><br />
-        <span class="publication-meta">{{ pub.authors }}. {{ pub.venue }}.</span>
-        {% if pub.link and pub.link != "" and pub.link != "#" %}
-          <br /><a href="{{ pub.link }}">Link</a>
-        {% endif %}
-      </li>
-      {% endfor %}
+    {% for pub in year_group.items %}
+    <li class="publication-item">
+      <span class="publication-authors">{{ pub.authors }}</span>.
+      <span class="publication-title">“{{ pub.title }}”</span>.
+      <span class="publication-meta">{{ pub.venue }}, {{ pub.year }}.</span>
+      {% if pub.link and pub.link != "" and pub.link != "#" %}
+        <a href="{{ pub.link }}" target="_blank" rel="noopener noreferrer">[Link]</a>
+      {% endif %}
+    </li>
+    {% endfor %}
     </ul>
+    </details>
     {% endfor %}
   </section>
 </div>

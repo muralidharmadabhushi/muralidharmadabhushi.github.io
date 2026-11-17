@@ -4,3 +4,6 @@
 - label: Projects
   url: /projects.html
   id: projects
+- label: Publications
+  url: /publications.html
+  id: publications
